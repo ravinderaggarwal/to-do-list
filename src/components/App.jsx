@@ -15,7 +15,13 @@ function App() {
       return [...previos, middle];
     });
   }
-
+  function delit(index) {
+    addarray((prevarray) => {
+      return prevarray.filter((element, id) => {
+        return id !== index;
+      });
+    });
+  }
   return (
     <div className="container">
       <div className="heading">
@@ -29,8 +35,8 @@ function App() {
       </div>
       <div>
         <ul>
-          {array.map((contact) => {
-            return <List name={contact} />;
+          {array.map((contact, index) => {
+            return <List name={contact} fun={delit} id={index} />;
           })}
         </ul>
       </div>
